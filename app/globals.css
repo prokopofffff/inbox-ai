@@ -1,0 +1,260 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Domain semantic colors (design tokens) — referenced by badges/charts. */
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-purple: var(--purple);
+  --color-purple-subtle: var(--purple-subtle);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-hover: var(--bg-hover);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Surfaces */
+  --background: #ffffff;
+  --foreground: #101828;
+  --card: #ffffff;
+  --card-foreground: #101828;
+  --popover: #ffffff;
+  --popover-foreground: #101828;
+
+  /* Accent / primary */
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+
+  /* Neutral fills */
+  --secondary: #f7f8fa;
+  --secondary-foreground: #101828;
+  --muted: #f7f8fa;
+  --muted-foreground: #667085;
+
+  /* Accent-subtle (used by shadcn hover/active states) */
+  --accent: #eff4ff;
+  --accent-foreground: #2563eb;
+
+  --destructive: #dc2626;
+
+  /* Lines + focus */
+  --border: #eaecf0;
+  --input: #eaecf0;
+  --ring: #2563eb;
+
+  /* Charts — accent blue · purple · amber · green · slate */
+  --chart-1: #2563eb;
+  --chart-2: #7c3aed;
+  --chart-3: #d97706;
+  --chart-4: #16a34a;
+  --chart-5: #667085;
+
+  /* radius-md ≈ 12px (0.75rem); base drives md via ×0.8 → set base 0.9375rem = 15px, md = 12px */
+  --radius: 0.9375rem;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #101828;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eff4ff;
+  --sidebar-accent-foreground: #2563eb;
+  --sidebar-border: #eaecf0;
+  --sidebar-ring: #2563eb;
+
+  /* Extended design tokens */
+  --accent-hover: #1d4ed8;
+  --accent-subtle: #eff4ff;
+  --bg-subtle: #f7f8fa;
+  --bg-hover: #f2f4f7;
+  --border-strong: #d0d5dd;
+  --text-primary: #101828;
+  --text-secondary: #667085;
+  --text-tertiary: #98a2b3;
+
+  /* Semantic status + subtle backgrounds */
+  --success: #16a34a;
+  --success-subtle: #ecfdf3;
+  --warning: #d97706;
+  --warning-subtle: #fffaeb;
+  --danger: #dc2626;
+  --danger-subtle: #fef3f2;
+  --purple: #7c3aed;
+  --purple-subtle: #f5f3ff;
+}
+
+.dark {
+  /* Surfaces */
+  --background: #0c111d;
+  --foreground: #f9fafb;
+  --card: #101828;
+  --card-foreground: #f9fafb;
+  --popover: #101828;
+  --popover-foreground: #f9fafb;
+
+  /* Accent / primary — stays blue, lifted for contrast on dark */
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  /* Neutral fills */
+  --secondary: #1f2a37;
+  --secondary-foreground: #f9fafb;
+  --muted: #1f2a37;
+  --muted-foreground: #98a2b3;
+
+  /* Accent-subtle on dark */
+  --accent: #1e293b;
+  --accent-foreground: #93c5fd;
+
+  --destructive: #f87171;
+
+  /* Lines + focus */
+  --border: #1f2a37;
+  --input: #1f2a37;
+  --ring: #3b82f6;
+
+  /* Charts */
+  --chart-1: #3b82f6;
+  --chart-2: #a78bfa;
+  --chart-3: #fbbf24;
+  --chart-4: #4ade80;
+  --chart-5: #98a2b3;
+
+  /* Sidebar */
+  --sidebar: #101828;
+  --sidebar-foreground: #f9fafb;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #93c5fd;
+  --sidebar-border: #1f2a37;
+  --sidebar-ring: #3b82f6;
+
+  /* Extended design tokens */
+  --accent-hover: #2563eb;
+  --accent-subtle: #1e293b;
+  --bg-subtle: #1f2a37;
+  --bg-hover: #273444;
+  --border-strong: #344054;
+  --text-primary: #f9fafb;
+  --text-secondary: #98a2b3;
+  --text-tertiary: #667085;
+
+  /* Semantic status + subtle backgrounds (dark-derived) */
+  --success: #4ade80;
+  --success-subtle: #052e16;
+  --warning: #fbbf24;
+  --warning-subtle: #451a03;
+  --danger: #f87171;
+  --danger-subtle: #450a0a;
+  --purple: #a78bfa;
+  --purple-subtle: #2e1065;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Domain color helpers
+ *
+ * Semantic badge colors for classification priority and sentiment. Each pair
+ * defines a soft background + readable foreground that works in light and dark
+ * mode. Consumed by the shared <PriorityBadge /> / <SentimentBadge /> helpers
+ * via the `data-tone` attribute so palettes stay centralized here.
+ * ------------------------------------------------------------------------- */
+@layer components {
+  /* Priority — High=danger(red) · Medium=warning(amber) · Low=success(green).
+     URGENT is a stronger red than HIGH. Uses design-token subtle bg + token text. */
+  [data-tone="urgent"] {
+    background-color: var(--danger-subtle);
+    color: var(--danger);
+  }
+  [data-tone="high"] {
+    background-color: var(--danger-subtle);
+    color: var(--danger);
+  }
+  [data-tone="medium"] {
+    background-color: var(--warning-subtle);
+    color: var(--warning);
+  }
+  [data-tone="low"] {
+    background-color: var(--success-subtle);
+    color: var(--success);
+  }
+
+  /* Sentiment — Positive=success(green) · Neutral=slate/secondary · Negative=danger(red). */
+  [data-tone="positive"] {
+    background-color: var(--success-subtle);
+    color: var(--success);
+  }
+  [data-tone="neutral"] {
+    background-color: var(--bg-subtle);
+    color: var(--text-secondary);
+  }
+  [data-tone="negative"] {
+    background-color: var(--danger-subtle);
+    color: var(--danger);
+  }
+}
